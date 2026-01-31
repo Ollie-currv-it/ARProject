@@ -1,0 +1,40 @@
+{% extends 'uploadModel/base.html' %}
+
+{% block home_content %}
+
+{% block title %}Home - Upload Models{% endblock %}
+
+
+<div class="container mt-5">
+    <h1>Model Upload</h1>
+    
+    <!-- Upload Section -->
+    <a href="{% url 'upload_model' %}" class="btn btn-sm btn-outline-primary">upload model</a>
+    {% block upload_form %}{% endblock %}
+    <!-- Uploaded Models Section -->
+    <div class="card">
+        <div class="card-header">
+            <h5>Uploaded Models</h5>
+        </div>
+        <div class="card-body">
+            {% if models %}
+                <div class="row">
+                    {% for model in models %}
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">{{ model.name }}</h6>
+                                    <p class="card-text text-muted">{{ model.uploaded_at|date:"M d, Y" }}</p>
+                                    <a href="{{ model.file.url }}" class="btn btn-sm btn-outline-primary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-muted">No models uploaded yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
