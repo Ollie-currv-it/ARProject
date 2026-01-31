@@ -31,4 +31,6 @@ def upload_model(request):
 
     return render(request, 'uploadModel/upload_model.html', {'form': form})
 
-# Pass the form into the template context
+
+def view_model(request, model_id):
+    pass
