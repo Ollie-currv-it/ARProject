@@ -10,11 +10,19 @@
 </head>
 <body>
     <header>
-        {% block header %}{% endblock %}
+        <div class="container">
+            <h1>Model Management System</h1>
+        </div>
     </header>
 
     <nav>
-        {% block navbar %}{% endblock %}
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="/home/" class="active">Home</a></li>
+                <li><a href="/models/">Models</a></li>
+                <li><a href="/upload_model/">Upload</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
