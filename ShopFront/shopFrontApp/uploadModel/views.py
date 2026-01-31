@@ -33,4 +33,4 @@ def upload_model(request):
 
 
 def view_model(request, model_id):
-    
+    pass
