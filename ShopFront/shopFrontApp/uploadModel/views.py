@@ -29,8 +29,9 @@ def upload_model(request):
 
         return render(request, 'uploadModel/upload_success.html', {'filename': model_file.name})
 
-    return render(request, 'uploadModel/upload_model.html', {'form': form})
+    return render(request, 'uploadModel/upload_model.html', {'form': form, 'models': UploadedModelFile.objects.all()})
 
 
 def view_model(request, model_id):
-    pass
+    model_instance = UploadedModelFile.objects.get(id=model_id)
+    return render(request, 'uploadModel/view_model.html', {'model': model_instance})

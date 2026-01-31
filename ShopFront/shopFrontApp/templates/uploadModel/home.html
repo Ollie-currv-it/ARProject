@@ -1,16 +1,16 @@
 {% extends 'uploadModel/base.html' %}
-
+{% block title %}Home - Upload Models{% endblock %}
 {% block home_content %}
 
-{% block title %}Home - Upload Models{% endblock %}
+
 
 
 <div class="container mt-5">
     <h1>Model Upload</h1>
-    
     <!-- Upload Section -->
-    <a href="{% url 'upload_model' %}" class="btn btn-sm btn-outline-primary">upload model</a>
+
     {% block upload_form %}{% endblock %}
+
     <!-- Uploaded Models Section -->
     <div class="card">
         <div class="card-header">
@@ -23,9 +23,9 @@
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="card-title">{{ model.name }}</h6>
-                                    <p class="card-text text-muted">{{ model.uploaded_at|date:"M d, Y" }}</p>
-                                    <a href="{{ model.file.url }}" class="btn btn-sm btn-outline-primary">View</a>
+                                    <h6 class="card-title">{{ model.model_name }}</h6>
+                                    <p class="card-text text-muted">{{ model.upload_time|date:"M d, Y" }}</p>
+                                    <a href="{% url 'view_model' model_id=model.id %}" class="btn btn-sm btn-outline-primary">View {{ model.model_name }}</a>
                                 </div>
                             </div>
                         </div>
